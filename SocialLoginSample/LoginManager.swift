@@ -10,6 +10,7 @@ import Firebase
 import FirebaseAuth
 import GoogleSignIn
 import AuthenticationServices
+import FBSDKLoginKit
 
 class LoginManager: NSObject {
   
@@ -81,6 +82,33 @@ class LoginManager: NSObject {
           return completion(false, error.localizedDescription)
         } else {
           completion(true, "Success")
+        }
+      }
+    }
+  }
+  
+  // MARK: - facebook
+  
+  func loginFacebook(presenting: UIViewController,  completion: @escaping (Bool, String) -> Void) {
+    
+    let fbLogin = FBSDKLoginKit.LoginManager()
+        
+    fbLogin.logIn(permissions: ["email"], from: presenting) { result, error in
+      
+      if let error = error {
+        print("error.localizedDescription")
+        completion(false, error.localizedDescription)
+      } else {
+        guard let tokenString = AccessToken.current?.tokenString else { return completion(false, "tokenString is nil") }
+        let credential = FacebookAuthProvider.credential(withAccessToken: tokenString)
+        
+        Auth.auth().signIn(with: credential) { authResult, error in
+          
+          if let error = error {
+            completion(false, error.localizedDescription)
+          } else {
+            completion(true, "Success")
+          }
         }
       }
     }

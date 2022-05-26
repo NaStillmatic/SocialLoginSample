@@ -8,4 +8,5 @@ target 'SocialLoginSample' do
   # Pods for SocialLoginSample
   pod 'Firebase/Auth'
   pod 'GoogleSignIn'
+  pod 'FBSDKLoginKit'
 end

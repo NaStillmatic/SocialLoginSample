@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import GoogleSignIn
+import FBSDKCoreKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,13 +20,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Override point for customization after application launch.
     
     FirebaseApp.configure()
-    
+            
+    FBSDKCoreKit.ApplicationDelegate.shared.application(application,
+                                                        didFinishLaunchingWithOptions: launchOptions)
+                
     return true
   }
   
-  func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+  func application(_ app: UIApplication,
+                   open url: URL,
+                   options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
     
-    return GIDSignIn.sharedInstance.handle(url)
+    if url.absoluteString.hasPrefix("fb") {
+      return ApplicationDelegate.shared.application(app,
+                                                    open: url,
+                                                    sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
+                                                    annotation: options[UIApplication.OpenURLOptionsKey.annotation])
+    } else {
+      return GIDSignIn.sharedInstance.handle(url)
+    }
   }
 }
 

@@ -35,4 +35,16 @@ class LoginViewController: UIViewController {
       }
     }
   }
+  
+  @IBAction func onClickFacebookBtn(_ sender: Any) {
+    
+    LoginManager.shared.loginFacebook(presenting: self) { isSuccess, result in
+      
+      if isSuccess {
+        self.dismiss(animated: true)
+      } else {
+        print("facebook Login Error: \(result)")
+      }
+    }
+  }
 }
