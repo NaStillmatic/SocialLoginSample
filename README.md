@@ -74,7 +74,7 @@ Signing & Capabilities 에 + 버튼을 눌러서 Sign in with Apple 항목을 �
 
 
 
-- Primary App ID 자 잘 선택되어있는지 확인합니다.
+- Primary App ID 맞게 선택되어있는지 확인합니다.
 
 - Domains and Suddomains 와 Return URLs 값은 **Firebase** 에 있는 정보를 복사해서 붙여주면 됩니다.
 
