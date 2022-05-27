@@ -2,6 +2,8 @@
 
 [Firebase](https://firebase.google.com/?hl=ko) 를 사용하여 소셜로그인을 구현한 샘플입니다.
 
+<img src="resource/screenshot.png " width="200"/>
+
 
 
 ## 환경설정
@@ -30,7 +32,7 @@ URL Schemes에 추가
 
 
 
-###  Apple 
+### Apple 
 
 Signing & Capabilities 에 + 버튼을 눌러서 Sign in with Apple 항목을 추가합니다. 
 
@@ -95,6 +97,10 @@ Signing & Capabilities 에 + 버튼을 눌러서 Sign in with Apple 항목을 �
 ![img](resource/firebase_03.png)
 
 > 애플 로그인은 시뮬레이터에는 테스트가 안되서 디바이스에서 확인했습니다. 
+
+
+
+### facebook
 
 
 
