@@ -92,7 +92,6 @@ class LoginManager: NSObject {
 
       guard let self = self else { return completion(false, "self is nil")}
       if let error = error {
-        print("error.localizedDescription")
         completion(false, error.localizedDescription)
       } else {
         guard let idTokenString = AccessToken.current?.tokenString else { return completion(false, "tokenString is nil") }

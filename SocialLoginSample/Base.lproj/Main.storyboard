@@ -17,18 +17,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="drG-K7-eZp">
-                                <rect key="frame" x="30" y="159" width="354" height="220"/>
+                                <rect key="frame" x="30" y="248.5" width="354" height="220"/>
                                 <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wrench.and.screwdriver" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="1U0-NR-79J">
+                                        <rect key="frame" x="0.0" y="-1" width="354" height="102.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="CEa-NQ-zj1"/>
+                                        </constraints>
+                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EI5-n4-8Ev">
-                                        <rect key="frame" x="0.0" y="0.0" width="354" height="40"/>
+                                        <rect key="frame" x="0.0" y="120" width="354" height="40"/>
                                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="yjE-ac-0GH"/>
+                                            <constraint firstAttribute="height" constant="40" id="fAj-1j-sfr"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Email"/>
+                                        <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="5" maxX="2.2250738585072014e-308" maxY="5"/>
+                                        <state key="normal" title="이메일로 로그인" image="icon_mail"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="20"/>
@@ -38,73 +45,83 @@
                                             <segue destination="2S1-UA-CTA" kind="show" id="ChK-es-zPW"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jdn-x1-hxu">
-                                        <rect key="frame" x="0.0" y="60" width="354" height="40"/>
-                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="Qxz-CR-t17"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Google"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="20"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="onClickGoogleBtn:" destination="X4r-vg-Qu7" eventType="touchUpInside" id="cCK-jQ-Lmj"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A5x-Wj-iVK">
-                                        <rect key="frame" x="0.0" y="120" width="354" height="40"/>
-                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="11C-BE-3kk"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="facebook"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="20"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="onClickFacebookBtn:" destination="X4r-vg-Qu7" eventType="touchUpInside" id="3X5-68-gj8"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IM3-Dy-4xl">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gAI-wn-NRM">
                                         <rect key="frame" x="0.0" y="180" width="354" height="40"/>
-                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="SfY-Pq-Lw5"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title=" Apple"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="20"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="onClickAppleBtn:" destination="X4r-vg-Qu7" eventType="touchUpInside" id="8ia-gf-VEo"/>
-                                        </connections>
-                                    </button>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IM3-Dy-4xl">
+                                                <rect key="frame" x="0.0" y="0.0" width="111.5" height="40"/>
+                                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="VUJ-RG-NcV"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="5" maxX="2.2250738585072014e-308" maxY="5"/>
+                                                <state key="normal" image="icon_apple"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onClickAppleBtn:" destination="X4r-vg-Qu7" eventType="touchUpInside" id="8ia-gf-VEo"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A5x-Wj-iVK">
+                                                <rect key="frame" x="121.5" y="0.0" width="111" height="40"/>
+                                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="L75-V1-qvm"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="5" maxX="2.2250738585072014e-308" maxY="5"/>
+                                                <state key="normal" image="icon_facebook"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onClickFacebookBtn:" destination="X4r-vg-Qu7" eventType="touchUpInside" id="3X5-68-gj8"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jdn-x1-hxu">
+                                                <rect key="frame" x="242.5" y="0.0" width="111.5" height="40"/>
+                                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="uHk-Ec-57F"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="5" maxX="2.2250738585072014e-308" maxY="5"/>
+                                                <state key="normal" image="icon_google"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onClickGoogleBtn:" destination="X4r-vg-Qu7" eventType="touchUpInside" id="cCK-jQ-Lmj"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="gAI-wn-NRM" firstAttribute="centerX" secondItem="drG-K7-eZp" secondAttribute="centerX" id="PP6-yx-CWJ"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5OF-LH-vb6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="drG-K7-eZp" firstAttribute="leading" secondItem="5OF-LH-vb6" secondAttribute="leading" constant="30" id="NPy-mA-6b4"/>
-                            <constraint firstItem="drG-K7-eZp" firstAttribute="centerY" secondItem="UQv-hz-Xpz" secondAttribute="centerY" multiplier="3/5" id="PFv-oa-Z0i"/>
-                            <constraint firstItem="5OF-LH-vb6" firstAttribute="trailing" secondItem="drG-K7-eZp" secondAttribute="trailing" constant="30" id="bwb-Ew-4MP"/>
-                            <constraint firstItem="drG-K7-eZp" firstAttribute="centerX" secondItem="UQv-hz-Xpz" secondAttribute="centerX" id="jvQ-gj-u7o"/>
+                            <constraint firstItem="5OF-LH-vb6" firstAttribute="trailing" secondItem="drG-K7-eZp" secondAttribute="trailing" constant="30" id="EF2-Zv-ew6"/>
+                            <constraint firstItem="drG-K7-eZp" firstAttribute="leading" secondItem="5OF-LH-vb6" secondAttribute="leading" constant="30" id="TOU-Xn-eba"/>
+                            <constraint firstItem="drG-K7-eZp" firstAttribute="centerY" secondItem="UQv-hz-Xpz" secondAttribute="centerY" multiplier="4/5" id="iwg-WD-MDm"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="6Ip-xV-fHX"/>
@@ -209,10 +226,9 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4wC-zL-BxV" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="3lb-lj-9yR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3lb-lj-9yR">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -270,7 +286,7 @@
                     <navigationItem key="navigationItem" title="Social Login Sample" id="wKc-Lx-AeS"/>
                     <connections>
                         <outlet property="label" destination="NjT-bD-rwg" id="DRc-VY-byL"/>
-                        <segue destination="jWe-sF-hhG" kind="presentation" identifier="showLoginVC" modalPresentationStyle="fullScreen" id="ZMp-at-XsV"/>
+                        <segue destination="jWe-sF-hhG" kind="presentation" identifier="showLoginVC" animates="NO" modalPresentationStyle="fullScreen" id="ZMp-at-XsV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XeN-Pr-fub" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -285,12 +301,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Y47-qb-WEv">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </textAttributes>
-                        <textAttributes key="largeTitleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -303,6 +313,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon_apple" width="32" height="32"/>
+        <image name="icon_facebook" width="32" height="32"/>
+        <image name="icon_google" width="32" height="32"/>
+        <image name="icon_mail" width="32" height="32"/>
+        <image name="wrench.and.screwdriver" catalog="system" width="128" height="120"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
