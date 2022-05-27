@@ -66,7 +66,9 @@ class LoginManager: NSObject {
     
     let signInConfig = GIDConfiguration(clientID: clientID)
     
-    GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: presenting) { user, error in
+    GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: presenting) { [weak self] user, error in
+      
+      guard let self = self else { return completion(false, "self is nil")}
       
       if let error = error {
         return completion(false, error.localizedDescription)
@@ -76,14 +78,7 @@ class LoginManager: NSObject {
             let idToken = auth.idToken else { return completion(false, "authentication or idToken is nil") }
       
       let credential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: auth.accessToken)
-      
-      Auth.auth().signIn(with: credential) { result , error in
-        if let error = error {
-          return completion(false, error.localizedDescription)
-        } else {
-          completion(true, "Success")
-        }
-      }
+      self.requestSignIn(credential: credential, completion: completion)
     }
   }
   
@@ -92,24 +87,27 @@ class LoginManager: NSObject {
   func loginFacebook(presenting: UIViewController,  completion: @escaping (Bool, String) -> Void) {
     
     let fbLogin = FBSDKLoginKit.LoginManager()
-        
-    fbLogin.logIn(permissions: ["email"], from: presenting) { result, error in
-      
+    
+    fbLogin.logIn(permissions: ["email"], from: presenting) { [weak self] result, error in
+
+      guard let self = self else { return completion(false, "self is nil")}
       if let error = error {
         print("error.localizedDescription")
         completion(false, error.localizedDescription)
       } else {
-        guard let tokenString = AccessToken.current?.tokenString else { return completion(false, "tokenString is nil") }
-        let credential = FacebookAuthProvider.credential(withAccessToken: tokenString)
-        
-        Auth.auth().signIn(with: credential) { authResult, error in
-          
-          if let error = error {
-            completion(false, error.localizedDescription)
-          } else {
-            completion(true, "Success")
-          }
-        }
+        guard let idTokenString = AccessToken.current?.tokenString else { return completion(false, "tokenString is nil") }
+        let credential = FacebookAuthProvider.credential(withAccessToken: idTokenString)
+        self.requestSignIn(credential: credential, completion: completion)
+      }
+    }
+  }
+  
+  func requestSignIn(credential: AuthCredential, completion: @escaping (Bool, String) -> Void) {
+    Auth.auth().signIn(with: credential) { authResult, error in
+      if let error = error {
+        completion(false, error.localizedDescription)
+      } else {
+        completion(true, "Success")
       }
     }
   }
@@ -160,13 +158,7 @@ extension LoginManager: ASAuthorizationControllerDelegate {
       }
       
       let credential = OAuthProvider.credential(withProviderID: "apple.com", idToken: idTokenString, rawNonce: nonce)
-      Auth.auth().signIn(with: credential) { authResult, error in
-        if let error = error {
-          completion(false,"Error Apple sign in: \(error)")
-        } else {
-          completion(true, "Success")
-        }
-      }
+      self.requestSignIn(credential: credential, completion: completion)
     }
   }
 }
